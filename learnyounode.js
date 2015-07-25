@@ -9,7 +9,21 @@
 // console.log(result);
 
 // Challenge 3
+// var fs = require('fs');
+// var buf = fs.readFileSync(process.argv[2]);
+// var str = buf.toString().split('\n').length - 1;
+// console.log(str);
+
+// Challenge 4
 var fs = require('fs');
-var buf = fs.readFileSync(process.argv[2]);
-var str = buf.toString().split('\n').length - 1;
-console.log(str);
+function async() {
+  fs.readFile(process.argv[2], 'utf8', function(err, data) {
+    if (err) {
+      console.log("Error!");
+    } else {
+      console.log(data.split('\n').length -1);
+    }
+  });
+}
+async();
+
