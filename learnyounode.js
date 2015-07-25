@@ -15,15 +15,33 @@
 // console.log(str);
 
 // Challenge 4
+// var fs = require('fs');
+// function async() {
+//   fs.readFile(process.argv[2], 'utf8', function(err, data) {
+//     if (err) {
+//       console.log("Error!");
+//     } else {
+//       console.log(data.split('\n').length -1);
+//     }
+//   });
+// }
+// async();
+
+// Challenge 5
 var fs = require('fs');
-function async() {
-  fs.readFile(process.argv[2], 'utf8', function(err, data) {
-    if (err) {
-      console.log("Error!");
-    } else {
-      console.log(data.split('\n').length -1);
+var path = require('path');
+var dir = process.argv[2];
+var ext = process.argv[3];
+
+fs.readdir(dir, function(err, list) {
+  list.forEach(function(file) {
+    if (path.extname(file) === '.' + ext) {
+      console.log(file);
     }
   });
-}
-async();
+});
+
+
+
+
 
